@@ -69,27 +69,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const aboutModal = document.getElementById("about-modal");
     const closeAboutModal = document.getElementById("close-about-modal");
 
-    if (brandTrigger && aboutModal) {
-        brandTrigger.addEventListener("click", () => {
-            aboutModal.classList.remove("hidden");
+    function openAboutModal() {
+        if (!aboutModal) return;
+        aboutModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeAboutModalFunc() {
+        if (!aboutModal) return;
+        aboutModal.classList.add("hidden");
+        document.body.style.overflow = "";
+    }
+
+    if (brandTrigger) {
+        brandTrigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openAboutModal();
         });
     }
 
-    if (closeAboutModal && aboutModal) {
-        closeAboutModal.addEventListener("click", () => {
-            aboutModal.classList.add("hidden");
+    if (closeAboutModal) {
+        closeAboutModal.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            closeAboutModalFunc();
         });
     }
 
     if (aboutModal) {
         aboutModal.addEventListener("click", (e) => {
             if (e.target === aboutModal) {
-                aboutModal.classList.add("hidden");
+                closeAboutModalFunc();
             }
         });
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape" && !aboutModal.classList.contains("hidden")) {
-                aboutModal.classList.add("hidden");
+                closeAboutModalFunc();
             }
         });
     }
@@ -567,11 +582,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    closeFloatingCard.addEventListener("click", () => {
-        floatingCard.classList.add("hidden");
-        scene.resetHighlights();
-        scene.focusOverview();
-    });
+    if (closeFloatingCard) {
+        closeFloatingCard.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            floatingCard.classList.add("hidden");
+            scene.resetHighlights();
+            scene.focusOverview();
+        });
+    }
 
     // Wire Scene Callbacks
     scene.onNodeClickCallback = (source) => {

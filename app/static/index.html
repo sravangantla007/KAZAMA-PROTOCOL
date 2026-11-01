@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=10">
+    <link rel="stylesheet" href="css/style.css?v=11">
     <!-- Three.js + OrbitControls + GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -49,71 +49,6 @@
 
         <!-- On-site Floating Toast Container -->
         <div id="toast-container" class="toast-container"></div>
-
-        <!-- ABOUT / MADE BY MODAL -->
-        <div id="about-modal" class="modal-backdrop hidden">
-            <div class="modal-card">
-                <div class="modal-close" id="close-about-modal">×</div>
-                <div class="modal-header">
-                    <div class="pulse-indicator" style="width: 10px; height: 10px;"></div>
-                    <div class="modal-title-group">
-                        <h3 class="modal-title">KAZAMA PROTOCOL</h3>
-                        <span class="modal-subtitle">AI-ASSISTED INFORMATION GAP DETECTION PLATFORM</span>
-                    </div>
-                </div>
-
-                <div class="modal-body">
-                    <div class="modal-section">
-                        <div class="modal-section-title">PROJECT OVERVIEW</div>
-                        <p class="modal-p">
-                            Built for the <strong>Shinchan Online Hackathon 2026</strong> under the <em>Digital Dark Spot</em> track. While search engines summarize what is visible, Kazama Protocol mathematically identifies what is <strong>missing, outdated, and conflicting</strong> across real-world sources before high-stakes decisions are executed.
-                        </p>
-                    </div>
-
-                    <div class="modal-grid-2">
-                        <div class="modal-info-box">
-                            <span class="info-box-label">HACKATHON</span>
-                            <span class="info-box-value">Shinchan Online Hackathon 2026</span>
-                            <span class="info-box-sub">Devengers Organization</span>
-                        </div>
-                        <div class="modal-info-box">
-                            <span class="info-box-label">TRACK</span>
-                            <span class="info-box-value">Digital Dark Spot</span>
-                            <span class="info-box-sub">AI & Information Architecture</span>
-                        </div>
-                    </div>
-
-                    <div class="modal-section">
-                        <div class="modal-section-title">CORE PIPELINE ARCHITECTURE</div>
-                        <div class="pipeline-pills">
-                            <span class="pipe-pill">M1: Ingestion</span>
-                            <span class="pipe-arrow">→</span>
-                            <span class="pipe-pill">M2: Weighter</span>
-                            <span class="pipe-arrow">→</span>
-                            <span class="pipe-pill">M3: Synthesizer</span>
-                            <span class="pipe-arrow">→</span>
-                            <span class="pipe-pill">M4: Decision Engine</span>
-                        </div>
-                    </div>
-
-                    <div class="modal-section">
-                        <div class="modal-section-title">MADE BY</div>
-                        <div class="creator-card">
-                            <div class="creator-avatar">🚀</div>
-                            <div class="creator-details">
-                                <div class="creator-name">Kazama Protocol Engineering Team</div>
-                                <div class="creator-meta">Full-Stack AI Architecture & 3D WebGL Engineering</div>
-                                <div class="creator-tech">FastAPI • Three.js • Google Gemini 3.5 • Tavily Search</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <span class="modal-footer-note">Ready for Vercel Serverless deployment with strict Pydantic contracts.</span>
-                </div>
-            </div>
-        </div>
 
         <!-- STATE 1: INITIAL CENTERED INTAKE VIEW -->
         <section id="intake-view">
@@ -269,9 +204,94 @@
 
     </div>
 
+    <!-- ABOUT / PROJECT & CREATOR DETAILS MODAL (DIRECT BODY CHILD) -->
+    <div id="about-modal" class="modal-backdrop hidden">
+        <div class="modal-card">
+            <button type="button" class="modal-close" id="close-about-modal" aria-label="Close Modal">×</button>
+            <div class="modal-header">
+                <div class="pulse-indicator" style="width: 10px; height: 10px;"></div>
+                <div class="modal-title-group">
+                    <h3 class="modal-title">KAZAMA PROTOCOL</h3>
+                    <span class="modal-subtitle">KASUKABE DEFENSE CORPS • DIGITAL DARK SPOT DETECTION</span>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">PROJECT OVERVIEW</div>
+                    <p class="modal-p">
+                        Built for the <strong>Shinchan Online Hackathon 2026</strong> under the <em>Digital Dark Spot</em> track (Devengers). While search engines summarize what is visible, Kazama Protocol mathematically identifies what is <strong>missing, outdated, and conflicting</strong> across real-world sources before high-stakes decisions are executed.
+                    </p>
+                </div>
+
+                <div class="modal-grid-2">
+                    <div class="modal-info-box">
+                        <span class="info-box-label">HACKATHON</span>
+                        <span class="info-box-value">Shinchan Online Hackathon 2026</span>
+                        <span class="info-box-sub">Devengers • Kasukabe Division</span>
+                    </div>
+                    <div class="modal-info-box">
+                        <span class="info-box-label">TRACK</span>
+                        <span class="info-box-value">Digital Dark Spot</span>
+                        <span class="info-box-sub">AI & Information Architecture</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">🍙 THE SHIN-CHAN INSPIRATION: TORU KAZAMA</div>
+                    <div class="lore-box">
+                        <p class="modal-p">
+                            Named after <strong>Toru Kazama (風間トオル)</strong> — the sharp, English-fluent, cram-school perfectionist of the <em>Kasukabe Defense Corps (春日部防衛隊)</em>.
+                        </p>
+                        <p class="modal-p" style="margin-top: 6px; font-style: italic; color: #fde68a;">
+                            "While Shin-chan runs around chasing Chocobi and acting on wild impulse, Kazama double-checks every single syllabus, scholarship renewal condition, and application deadline so nobody gets burned. Action Kamen says: Trust nothing until verified!"
+                        </p>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">CORE PIPELINE ARCHITECTURE</div>
+                    <div class="pipeline-pills">
+                        <span class="pipe-pill">M1: Ingestion</span>
+                        <span class="pipe-arrow">→</span>
+                        <span class="pipe-pill">M2: Weighter</span>
+                        <span class="pipe-arrow">→</span>
+                        <span class="pipe-pill">M3: Synthesizer</span>
+                        <span class="pipe-arrow">→</span>
+                        <span class="pipe-pill">M4: Decision Engine</span>
+                    </div>
+                </div>
+
+                <div class="modal-section">
+                    <div class="modal-section-title">CREATOR & ARCHITECT</div>
+                    <div class="creator-card">
+                        <div class="creator-avatar">🎓</div>
+                        <div class="creator-details">
+                            <div class="creator-name-row">
+                                <a href="https://sravangantla007.github.io" target="_blank" rel="noopener noreferrer" class="creator-name-link">
+                                    <span class="creator-name">G.V.Sravan</span>
+                                </a>
+                                <span class="creator-tag">IIT TIRUPATI</span>
+                            </div>
+                            <div class="creator-meta">Undergrad @ IIT Tirupati • Full-Stack AI & 3D WebGL Engineering</div>
+                            <a href="https://sravangantla007.github.io" target="_blank" rel="noopener noreferrer" class="creator-link">
+                                🌐 https://sravangantla007.github.io ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <span class="modal-footer-note">⚡ Action Kamen Certified • Pure Verified Ground Truth</span>
+                <span class="modal-footer-badge">Kasukabe Defense 2026</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Application Script -->
-    <script src="js/scene.js?v=10"></script>
-    <script src="js/app.js?v=10"></script>
+    <script src="js/scene.js?v=11"></script>
+    <script src="js/app.js?v=11"></script>
 </body>
 </html>
 
