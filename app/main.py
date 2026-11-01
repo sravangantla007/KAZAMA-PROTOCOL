@@ -87,7 +87,8 @@ async def health():
         "mock_mode": settings.mock_mode,
         "mock_llm": settings.mock_llm,
         "search_provider": settings.search_provider,
-        "llm_model": settings.llm_model,
+        "llm_model": settings.llm_model or "gemini-3.5-flash",
+        "llm_provider": settings.llm_provider or "gemini",
     }
 
 

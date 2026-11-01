@@ -1,4 +1,5 @@
 from __future__ import annotations
+import os
 from dataclasses import dataclass
 from typing import Optional
 import httpx
@@ -27,7 +28,13 @@ class TavilyProvider(SearchProvider):
     API_URL = "https://api.tavily.com/search"
 
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or settings.tavily_api_key or settings.search_api_key
+        self.api_key = (
+            api_key
+            or settings.tavily_api_key
+            or settings.search_api_key
+            or os.environ.get("TAVILY_API_KEY", "")
+            or os.environ.get("SEARCH_API_KEY", "")
+        )
 
     async def search(self, query: str, k: int) -> list[SearchHit]:
         if not self.api_key or k <= 0:
@@ -59,6 +66,7 @@ class TavilyProvider(SearchProvider):
 
 def get_search_provider() -> SearchProvider:
     provider = settings.search_provider.lower()
-    if provider == "tavily":
+    has_tavily_key = bool(settings.tavily_api_key or os.environ.get("TAVILY_API_KEY"))
+    if provider == "tavily" or has_tavily_key:
         return TavilyProvider()
     return NullProvider()

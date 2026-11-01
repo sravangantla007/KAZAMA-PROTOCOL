@@ -1,4 +1,5 @@
 from __future__ import annotations
+import os
 import asyncio
 import json
 import re
@@ -19,8 +20,14 @@ class GeminiClient(LLMClient):
     """Google Gemini API client with schema enforcement and multi-model fallback on 503."""
 
     def __init__(self, api_key: str | None = None, model: str | None = None):
-        self.api_key = api_key or settings.llm_api_key
-        self.model = model or settings.llm_model
+        self.api_key = (
+            api_key
+            or settings.gemini_api_key
+            or settings.llm_api_key
+            or os.environ.get("GEMINI_API_KEY", "")
+            or os.environ.get("LLM_API_KEY", "")
+        )
+        self.model = model or settings.llm_model or "gemini-3.5-flash"
 
     async def generate_json(
         self,

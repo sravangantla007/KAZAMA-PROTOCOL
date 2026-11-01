@@ -8,11 +8,12 @@ class Settings(BaseSettings):
     mock_mode: bool = False
     mock_llm: bool = False
 
-    llm_provider: str = "anthropic"
-    llm_model: str = ""
+    llm_provider: str = "gemini"
+    llm_model: str = "gemini-3.5-flash"
     llm_api_key: str = ""
+    gemini_api_key: str = ""
 
-    search_provider: str = "none"
+    search_provider: str = "tavily"
     search_api_key: str = ""
     tavily_api_key: str = ""
 

@@ -10,3 +10,4 @@ from app.main import app
 
 # Export app for Vercel ASGI serverless handler
 __all__ = ["app"]
+
