@@ -1,6 +1,12 @@
 [build-system]
 requires = ["setuptools>=68"]
-build-backend = "setuptools.backends.legacy:build"
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+package = false
+
+[tool.vercel]
+entrypoint = "api/index.py"
 
 [project]
 name = "digital-dark-spot"
@@ -20,6 +26,8 @@ dependencies = [
     "rapidfuzz>=3.9",
     "python-dotenv>=1.0",
     "chardet>=5.2",
+    "tavily-python>=0.3.3",
+    "python-multipart>=0.0.9",
 ]
 
 [project.optional-dependencies]
