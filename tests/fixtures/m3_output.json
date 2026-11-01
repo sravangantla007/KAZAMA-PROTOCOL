@@ -1,0 +1,224 @@
+{
+  "query": "What should I verify before applying for the NMES scholarship?",
+  "topic_summary": "The National Merit Excellence Scholarship provides ₹36,000 annually to eligible undergraduate students with at least 85% marks. Sources present conflicting criteria regarding family income limits, deadlines, and required documentation, while official renewal criteria remain undocumented.",
+  "facts": [
+    {
+      "fact_id": "F1",
+      "statement": "Applicants must have secured a minimum of 85% aggregate marks in their qualifying examination.",
+      "category": "eligibility",
+      "confidence": 0.851,
+      "llm_confidence": 0.95,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Applicants must have secured a minimum of 85% aggregate marks in their qualifying examination (Class 12 or equivalent)."
+        },
+        {
+          "source_id": "S2",
+          "quote": "applicants must have achieved a minimum aggregate of 85% in their Class 12 board examinations."
+        }
+      ],
+      "corroboration_count": 2
+    },
+    {
+      "fact_id": "F2",
+      "statement": "The official annual scholarship disbursement is ₹36,000 per annum paid in two equal instalments via Direct Benefit Transfer.",
+      "category": "cost",
+      "confidence": 0.85,
+      "llm_confidence": 0.85,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Selected candidates will receive ₹36,000 per annum, disbursed in two equal instalments directly into the applicant’s bank account via Direct Benefit Transfer (DBT)."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F3",
+      "statement": "The official guidelines for the 2026-27 cycle specify an annual family income limit not exceeding ₹6,00,000.",
+      "category": "eligibility",
+      "confidence": 0.85,
+      "llm_confidence": 0.85,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Family annual income must not exceed ₹6,00,000 (Rupees Six Lakh) as certified by a competent authority."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F4",
+      "statement": "The official deadline for 2026-27 applications is 30 November 2026 on the National Scholarship Portal.",
+      "category": "deadline",
+      "confidence": 0.85,
+      "llm_confidence": 0.85,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Last date for submission of applications is 30 November 2026."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F5",
+      "statement": "The official 2026-27 guidelines require an Income Certificate issued by the Tahsildar or equivalent revenue authority not older than six months.",
+      "category": "documents",
+      "confidence": 0.85,
+      "llm_confidence": 0.85,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Income Certificate issued by the Tahsildar or equivalent revenue authority, not older than six months from the date of application."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F6",
+      "statement": "Selection is merit-cum-means based with merit lists prepared at the district level by District Scholarship Committees.",
+      "category": "process",
+      "confidence": 0.85,
+      "llm_confidence": 0.85,
+      "supporting": [
+        {
+          "source_id": "S1",
+          "quote": "Selection is based on merit-cum-means. A merit list will be prepared at the district level by the District Scholarship Committee."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F7",
+      "statement": "An unofficial guide claims the annual family income limit is ₹8,00,000.",
+      "category": "eligibility",
+      "confidence": 0.398,
+      "llm_confidence": 0.4,
+      "supporting": [
+        {
+          "source_id": "S2",
+          "quote": "the annual family income must not exceed ₹8,00,000 (Rupees Eight Lakh)."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F8",
+      "statement": "An unofficial guide states an ITR copy of parent or guardian is the preferred document rather than an income certificate.",
+      "category": "documents",
+      "confidence": 0.398,
+      "llm_confidence": 0.4,
+      "supporting": [
+        {
+          "source_id": "S2",
+          "quote": "ITR (Income Tax Return) copy of parent or guardian for the previous financial year, as it comprehensively demonstrates family income."
+        }
+      ],
+      "corroboration_count": 1
+    },
+    {
+      "fact_id": "F9",
+      "statement": "The applicant holds an income certificate issued by a village officer dated January 2026 and achieved 88% marks.",
+      "category": "documents",
+      "confidence": 0.9,
+      "llm_confidence": 0.9,
+      "supporting": [
+        {
+          "source_id": "S5",
+          "quote": "Income certificate: I got mine from the village officer (Gram Panchayat level), dated January 2026."
+        }
+      ],
+      "corroboration_count": 1
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "C1",
+      "topic": "Maximum annual family income threshold",
+      "severity": "HIGH",
+      "claims": [
+        {
+          "source_id": "S1",
+          "claim": "Family annual income must not exceed ₹6,00,000.",
+          "quote": "Family annual income must not exceed ₹6,00,000 (Rupees Six Lakh) as certified by a competent authority."
+        },
+        {
+          "source_id": "S2",
+          "claim": "Annual family income must not exceed ₹8,00,000.",
+          "quote": "the annual family income must not exceed ₹8,00,000 (Rupees Eight Lakh)."
+        }
+      ],
+      "note": "S1 (official guidelines) mandates ₹6,00,000, whereas S2 (online guide) states ₹8,00,000."
+    },
+    {
+      "conflict_id": "C2",
+      "topic": "Required document for proof of family income",
+      "severity": "MEDIUM",
+      "claims": [
+        {
+          "source_id": "S1",
+          "claim": "Income Certificate issued by Tahsildar or equivalent revenue authority is mandatory.",
+          "quote": "Income Certificate issued by the Tahsildar or equivalent revenue authority, not older than six months from the date of application."
+        },
+        {
+          "source_id": "S2",
+          "claim": "Parent or guardian ITR copy is preferred over Tahsildar certificate.",
+          "quote": "ITR (Income Tax Return) copy of parent or guardian for the previous financial year, as it comprehensively demonstrates family income."
+        }
+      ],
+      "note": "S1 requires an income certificate from a Tahsildar, whereas S2 states an ITR copy is preferred."
+    },
+    {
+      "conflict_id": "C3",
+      "topic": "Application submission deadline",
+      "severity": "HIGH",
+      "claims": [
+        {
+          "source_id": "S1",
+          "claim": "Deadline is 30 November 2026 for the 2026-27 cycle.",
+          "quote": "Last date for submission of applications is 30 November 2026."
+        },
+        {
+          "source_id": "S2",
+          "claim": "Deadline is 31 October for the 2025-26 cycle.",
+          "quote": "The last date for submission for the 2025-26 cycle is 31 October."
+        }
+      ],
+      "note": "S1 sets a deadline of 30 November 2026, while S2 references 31 October."
+    }
+  ],
+  "missing_information": [
+    {
+      "missing_id": "M1",
+      "description": "Renewal criteria, minimum performance requirements, and continuation rules for subsequent academic years.",
+      "importance": "IMPORTANT",
+      "why_expected": "Continuing scholarship disbursements across multi-year degrees require explicit renewal guidelines, but official sources publish no renewal policy.",
+      "provenance": "AI_INFERRED"
+    },
+    {
+      "missing_id": "M2",
+      "description": "Appeal and grievance redressal mechanism for rejected or disputed applications.",
+      "importance": "MINOR",
+      "why_expected": "Applicants facing document rejections or portal errors need documented escalation contacts and procedures.",
+      "provenance": "AI_INFERRED"
+    }
+  ],
+  "coverage_notes": [
+    "Official guidelines document explicitly omits renewal policy information."
+  ],
+  "sources_used": [
+    "S5",
+    "S1",
+    "S6",
+    "S4",
+    "S2",
+    "S3"
+  ],
+  "model_info": {
+    "provider": "mock",
+    "model": "replay",
+    "mock": true
+  }
+}

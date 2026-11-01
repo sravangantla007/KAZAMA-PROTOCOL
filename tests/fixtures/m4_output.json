@@ -1,0 +1,264 @@
+{
+  "decision": "Apply to the NMES scholarship this cycle",
+  "query": "What should I verify before applying for the NMES scholarship?",
+  "decision_readiness": "VERIFY_FIRST",
+  "summary": "Before applying for the NMES scholarship, verify your family income eligibility and certificate issuing authority against official portal notices. Conflicting income thresholds (₹6L vs ₹8L) exist across sources, and the applicant's village-level certificate may require Tahsildar endorsement.",
+  "overall_trust_score": 0.642,
+  "trust_summary": {
+    "overall_trust_score": 0.642,
+    "overall_trust_label": "MEDIUM",
+    "components": {
+      "evidence_strength": 0.863,
+      "conflict_penalty": 0.15,
+      "missing_penalty": 0.04,
+      "staleness_penalty": 0.03
+    }
+  },
+  "relevant_facts": [
+    {
+      "evidence_id": "E1",
+      "statement": "Applicants must have secured a minimum of 85% aggregate marks in Class 12 or equivalent.",
+      "provenance": "SOURCED",
+      "citations": [
+        {
+          "source_id": "S1",
+          "source_label": "National Merit Excellence Scholarship – Official Guidelines 2026-27",
+          "source_type": "web",
+          "quote": "Applicants must have secured a minimum of 85% aggregate marks in their qualifying examination (Class 12 or equivalent).",
+          "quote_verified": true,
+          "source_date": "2026-08-14",
+          "source_baseline_trust": 0.801
+        }
+      ],
+      "confidence": 0.85,
+      "time_relevance": {
+        "level": "CURRENT",
+        "message": "Official guidelines for the 2026-27 cycle were published on 2026-08-01 and apply directly to this cycle.",
+        "source_dates": [
+          "2026-08-14"
+        ]
+      },
+      "relevance_to_decision": "Confirms the applicant's 88% marks satisfy the minimum academic eligibility threshold."
+    },
+    {
+      "evidence_id": "E2",
+      "statement": "Official guidelines require an Income Certificate issued by Tahsildar or equivalent revenue authority not older than six months.",
+      "provenance": "SOURCED",
+      "citations": [
+        {
+          "source_id": "S1",
+          "source_label": "National Merit Excellence Scholarship – Official Guidelines 2026-27",
+          "source_type": "web",
+          "quote": "Income Certificate issued by the Tahsildar or equivalent revenue authority, not older than six months from the date of application.",
+          "quote_verified": true,
+          "source_date": "2026-08-14",
+          "source_baseline_trust": 0.801
+        }
+      ],
+      "confidence": 0.85,
+      "time_relevance": {
+        "level": "CURRENT",
+        "message": "Official guidelines for the 2026-27 cycle specify certificate authority and 6-month validity window.",
+        "source_dates": [
+          "2026-08-14"
+        ]
+      },
+      "relevance_to_decision": "Determines whether the applicant's current documentation satisfies official requirements."
+    },
+    {
+      "evidence_id": "E3",
+      "statement": "The applicant holds an income certificate issued by a village officer dated January 2026.",
+      "provenance": "SOURCED",
+      "citations": [
+        {
+          "source_id": "S5",
+          "source_label": "my_offer_notes.txt",
+          "source_type": "user_document",
+          "quote": "Income certificate: I got mine from the village officer (Gram Panchayat level), dated January 2026.",
+          "quote_verified": true,
+          "source_date": null,
+          "source_baseline_trust": 0.976
+        }
+      ],
+      "confidence": 0.9,
+      "time_relevance": {
+        "level": "UNDATED",
+        "message": "The certificate is dated January 2026 (over six months old as of October 2026) and issued at village level.",
+        "source_dates": [
+          null
+        ]
+      },
+      "relevance_to_decision": "Critical gap: the existing certificate appears stale (>6 months) and lacks Tahsildar revenue authority endorsement."
+    },
+    {
+      "evidence_id": "E4",
+      "statement": "The official deadline for 2026-27 applications is 30 November 2026.",
+      "provenance": "SOURCED",
+      "citations": [
+        {
+          "source_id": "S1",
+          "source_label": "National Merit Excellence Scholarship – Official Guidelines 2026-27",
+          "source_type": "web",
+          "quote": "Last date for submission of applications is 30 November 2026.",
+          "quote_verified": true,
+          "source_date": "2026-08-14",
+          "source_baseline_trust": 0.801
+        }
+      ],
+      "confidence": 0.85,
+      "time_relevance": {
+        "level": "CURRENT",
+        "message": "Current cycle application window closing date on National Scholarship Portal.",
+        "source_dates": [
+          "2026-08-14"
+        ]
+      },
+      "relevance_to_decision": "Sets the final operational deadline for obtaining valid revenue certificates and submitting."
+    }
+  ],
+  "conflicting_claims": [
+    {
+      "conflict_id": "C1",
+      "topic": "Maximum annual family income threshold",
+      "severity": "HIGH",
+      "claims": [
+        {
+          "source_id": "S1",
+          "source_label": "National Merit Excellence Scholarship – Official Guidelines 2026-27",
+          "source_type": "web",
+          "quote": "Family annual income must not exceed ₹6,00,000 (Rupees Six Lakh) as certified by a competent authority.",
+          "quote_verified": true,
+          "source_date": "2026-08-14",
+          "source_baseline_trust": 0.801,
+          "claim": "Family annual income must not exceed ₹6,00,000."
+        },
+        {
+          "source_id": "S2",
+          "source_label": "Complete NMES Scholarship Guide 2025 – Everything You Need to Know",
+          "source_type": "web",
+          "quote": "the annual family income must not exceed ₹8,00,000 (Rupees Eight Lakh).",
+          "quote_verified": true,
+          "source_date": "2025-07-02",
+          "source_baseline_trust": 0.348,
+          "claim": "Annual family income must not exceed ₹8,00,000."
+        }
+      ],
+      "why_it_matters_for_decision": "Applying with family income between ₹6L and ₹8L risks immediate disqualification if the official threshold is ₹6L.",
+      "suggested_resolution": "Verify the official income ceiling on scholarships.gov.in before applying.",
+      "confidence": 0.85,
+      "time_relevance": {
+        "level": "AGING",
+        "message": "S1 is the current 2026-27 gazette, while S2 is an undated or prior cycle web guide.",
+        "source_dates": [
+          "2026-08-14",
+          "2025-07-02"
+        ]
+      },
+      "provenance": "SOURCED"
+    },
+    {
+      "conflict_id": "C2",
+      "topic": "Required document for proof of family income",
+      "severity": "MEDIUM",
+      "claims": [
+        {
+          "source_id": "S1",
+          "source_label": "National Merit Excellence Scholarship – Official Guidelines 2026-27",
+          "source_type": "web",
+          "quote": "Income Certificate issued by the Tahsildar or equivalent revenue authority, not older than six months from the date of application.",
+          "quote_verified": true,
+          "source_date": "2026-08-14",
+          "source_baseline_trust": 0.801,
+          "claim": "Income Certificate issued by Tahsildar or equivalent revenue authority is mandatory."
+        },
+        {
+          "source_id": "S2",
+          "source_label": "Complete NMES Scholarship Guide 2025 – Everything You Need to Know",
+          "source_type": "web",
+          "quote": "ITR (Income Tax Return) copy of parent or guardian for the previous financial year, as it comprehensively demonstrates family income.",
+          "quote_verified": true,
+          "source_date": "2025-07-02",
+          "source_baseline_trust": 0.348,
+          "claim": "Parent or guardian ITR copy is preferred over Tahsildar certificate."
+        }
+      ],
+      "why_it_matters_for_decision": "Submitting only an ITR may lead to document rejection if the portal requires an official revenue certificate.",
+      "suggested_resolution": "Obtain a Tahsildar-level revenue certificate as mandated by official S1 rules.",
+      "confidence": 0.85,
+      "time_relevance": {
+        "level": "AGING",
+        "message": "S1 official rules override secondary online advice from S2.",
+        "source_dates": [
+          "2026-08-14",
+          "2025-07-02"
+        ]
+      },
+      "provenance": "SOURCED"
+    }
+  ],
+  "missing_information": [
+    {
+      "missing_id": "M1",
+      "description": "Renewal criteria, minimum academic performance, and continuation conditions for subsequent years.",
+      "importance": "IMPORTANT",
+      "why_it_matters_for_decision": "Applicant needs to know ongoing eligibility conditions to plan undergraduate degree funding.",
+      "where_to_look": "National Scholarship Portal helpdesk or institutional scholarship nodal officer.",
+      "confidence": 0.9,
+      "provenance": "AI_INFERRED"
+    }
+  ],
+  "actionable_verification_checklist": [
+    {
+      "item_id": "V1",
+      "priority": 1,
+      "urgency": "CRITICAL",
+      "action": "Check the official 2026-27 brochure on scholarships.gov.in to confirm whether the income limit is ₹6,00,000.",
+      "reason": "Resolves HIGH-severity conflict C1 between official gazette and online guides.",
+      "related_ids": [
+        "C1"
+      ],
+      "verify_with": "https://scholarships.gov.in",
+      "status": "PENDING"
+    },
+    {
+      "item_id": "V2",
+      "priority": 2,
+      "urgency": "CRITICAL",
+      "action": "Apply immediately to the Tahsildar or revenue office for a fresh income certificate.",
+      "reason": "The applicant's current certificate is dated January 2026 (>6 months old) and issued at village level, violating S1 mandatory criteria.",
+      "related_ids": [
+        "E2",
+        "E3",
+        "C2"
+      ],
+      "verify_with": "Tahsildar / Taluk Revenue Office",
+      "status": "PENDING"
+    },
+    {
+      "item_id": "V3",
+      "priority": 3,
+      "urgency": "IMPORTANT",
+      "action": "Contact the college nodal scholarship officer to clarify renewal and continuation rules.",
+      "reason": "Addresses missing renewal policy M1 not covered in official guidelines.",
+      "related_ids": [
+        "M1"
+      ],
+      "verify_with": "College Financial Aid / Scholarship Helpdesk",
+      "status": "PENDING"
+    },
+    {
+      "item_id": "V4",
+      "priority": 4,
+      "urgency": "IMPORTANT",
+      "action": "Re-confirm the application portal link and 30 November 2026 deadline.",
+      "reason": "Ensure submission is completed prior to the portal closing date.",
+      "related_ids": [
+        "E4"
+      ],
+      "verify_with": "https://scholarships.gov.in",
+      "status": "PENDING"
+    }
+  ],
+  "disclaimer": "This analysis highlights potential information gaps, conflicts, and outdated details based only on the sources reviewed. AI-generated items are signals, not confirmed facts. Verify important details with the official source before making a decision.",
+  "warnings": []
+}

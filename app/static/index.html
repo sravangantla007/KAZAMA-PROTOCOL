@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazama Protocol — Digital Dark Spot Detection</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=10">
+    <!-- Three.js + OrbitControls + GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Fullscreen 3D Canvas -->
+    <div id="canvas-container"></div>
+
+    <!-- UI Overlay Layer -->
+    <div id="ui-layer">
+
+        <!-- Top Navigation Bar -->
+        <header id="top-nav">
+            <div class="brand" id="brand-trigger" title="Click to view Project & Creator Details">
+                <div class="pulse-indicator"></div>
+                <div class="brand-text-group">
+                    <span class="brand-title">KAZAMA PROTOCOL</span>
+                    <span class="brand-sep">/</span>
+                    <span class="brand-sub">DIGITAL DARK SPOT DETECTION</span>
+                </div>
+                <span class="brand-badge">DETAILS ↗</span>
+            </div>
+            <div class="nav-controls">
+                <div id="backend-status-pill" class="status-pill">
+                    <span class="status-dot"></span>
+                    <span class="status-text">CHECKING API...</span>
+                </div>
+                <button id="scenario-pill" class="pill-btn" title="Quick Mock Scenario">NMES Scenario</button>
+                <button id="reset-btn" class="pill-btn secondary" style="display: none;">New Query</button>
+            </div>
+        </header>
+
+        <!-- On-site Backend Status Banner -->
+        <div id="offline-banner" class="offline-banner hidden"></div>
+
+        <!-- On-site Floating Toast Container -->
+        <div id="toast-container" class="toast-container"></div>
+
+        <!-- ABOUT / MADE BY MODAL -->
+        <div id="about-modal" class="modal-backdrop hidden">
+            <div class="modal-card">
+                <div class="modal-close" id="close-about-modal">×</div>
+                <div class="modal-header">
+                    <div class="pulse-indicator" style="width: 10px; height: 10px;"></div>
+                    <div class="modal-title-group">
+                        <h3 class="modal-title">KAZAMA PROTOCOL</h3>
+                        <span class="modal-subtitle">AI-ASSISTED INFORMATION GAP DETECTION PLATFORM</span>
+                    </div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-section">
+                        <div class="modal-section-title">PROJECT OVERVIEW</div>
+                        <p class="modal-p">
+                            Built for the <strong>Shinchan Online Hackathon 2026</strong> under the <em>Digital Dark Spot</em> track. While search engines summarize what is visible, Kazama Protocol mathematically identifies what is <strong>missing, outdated, and conflicting</strong> across real-world sources before high-stakes decisions are executed.
+                        </p>
+                    </div>
+
+                    <div class="modal-grid-2">
+                        <div class="modal-info-box">
+                            <span class="info-box-label">HACKATHON</span>
+                            <span class="info-box-value">Shinchan Online Hackathon 2026</span>
+                            <span class="info-box-sub">Devengers Organization</span>
+                        </div>
+                        <div class="modal-info-box">
+                            <span class="info-box-label">TRACK</span>
+                            <span class="info-box-value">Digital Dark Spot</span>
+                            <span class="info-box-sub">AI & Information Architecture</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <div class="modal-section-title">CORE PIPELINE ARCHITECTURE</div>
+                        <div class="pipeline-pills">
+                            <span class="pipe-pill">M1: Ingestion</span>
+                            <span class="pipe-arrow">→</span>
+                            <span class="pipe-pill">M2: Weighter</span>
+                            <span class="pipe-arrow">→</span>
+                            <span class="pipe-pill">M3: Synthesizer</span>
+                            <span class="pipe-arrow">→</span>
+                            <span class="pipe-pill">M4: Decision Engine</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-section">
+                        <div class="modal-section-title">MADE BY</div>
+                        <div class="creator-card">
+                            <div class="creator-avatar">🚀</div>
+                            <div class="creator-details">
+                                <div class="creator-name">Kazama Protocol Engineering Team</div>
+                                <div class="creator-meta">Full-Stack AI Architecture & 3D WebGL Engineering</div>
+                                <div class="creator-tech">FastAPI • Three.js • Google Gemini 3.5 • Tavily Search</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <span class="modal-footer-note">Ready for Vercel Serverless deployment with strict Pydantic contracts.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATE 1: INITIAL CENTERED INTAKE VIEW -->
+        <section id="intake-view">
+            <div class="intake-card">
+                <div class="intake-header">
+                    <h2>Illuminate Digital Dark Spots</h2>
+                    <p>Enter any goal, topic, or claim. We crawl ground truth, detect AI synthesis, identify source conflicts, and expose hidden blind spots.</p>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="query-input" rows="3" placeholder="What goal, question, or research topic do you want to analyze? (e.g., What are the eligibility criteria and required documents for GATE 2027?)"></textarea>
+                </div>
+
+                <!-- URLs & File Attachments -->
+                <div class="attachment-section">
+                    <div class="url-input-container">
+                        <input type="url" id="url-input" placeholder="Paste custom seed URL and press Enter...">
+                        <button id="add-url-btn" class="icon-btn" title="Add URL">+</button>
+                    </div>
+                    <div id="url-chips" class="chips-container"></div>
+
+                    <div class="file-drop-container">
+                        <label for="file-upload" class="file-drop-label">
+                            <span class="file-icon">📁</span>
+                            <span id="file-drop-text">Attach PDF or TXT documents (optional)</span>
+                        </label>
+                        <input type="file" id="file-upload" multiple accept=".pdf,.txt,.md">
+                    </div>
+                    <div id="file-chips" class="chips-container"></div>
+                </div>
+
+                <!-- Action Bar -->
+                <div class="intake-actions">
+                    <div class="options-toggle">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="mock-mode-toggle">
+                            <span class="toggle-text">Offline / Mock Mode</span>
+                        </label>
+                    </div>
+                    <button id="explore-btn" class="primary-btn">
+                        <span>Explore Ground Truth</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATE 2: LOADING & STATUS STEPPER -->
+        <div id="loading-overlay" class="hidden">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <div id="loading-step-text" class="loading-step-title">Ingesting Ground Truth Sources...</div>
+                <div class="loading-subtext">Traversing internet nodes, weighting static domains, and parsing evidence.</div>
+            </div>
+        </div>
+
+        <!-- STATE 3: 3-SECTION RESULTS WORKSPACE -->
+        <main id="workspace-view" class="hidden">
+            
+            <!-- LEFT PANEL: Original Inputs & Weighed Sources -->
+            <aside id="left-panel" class="translucent-panel">
+                <div class="panel-section">
+                    <h3 class="panel-heading">RESEARCH TOPIC</h3>
+                    <div id="active-query-text" class="active-query-box"></div>
+                    <div id="active-attachments" class="attachments-list"></div>
+                </div>
+
+                <div class="panel-section flex-grow">
+                    <div class="section-header-flex">
+                        <h3 class="panel-heading">INGESTED SOURCES</h3>
+                        <span id="sources-count-badge" class="badge-pill">0</span>
+                    </div>
+                    <div id="sources-list" class="sources-scroll"></div>
+                </div>
+            </aside>
+
+            <!-- CENTER PANEL: Synthesis, Facts, Conflicts, Missing Info, Decision Support -->
+            <section id="center-panel" class="translucent-panel">
+                
+                <!-- Executive Summary -->
+                <div class="dossier-card">
+                    <div class="card-header">
+                        <span class="card-tag">EXECUTIVE SUMMARY</span>
+                        <span id="synthesis-mode-tag" class="mode-tag">LIVE SYNTHESIS</span>
+                    </div>
+                    <p id="summary-text" class="summary-body"></p>
+                </div>
+
+                <!-- Verified Facts -->
+                <div class="dossier-card">
+                    <div class="card-header">
+                        <span class="card-tag">VERIFIED FACTS</span>
+                        <span class="info-tag">VERBATIM CITED</span>
+                    </div>
+                    <div id="facts-container" class="items-list"></div>
+                </div>
+
+                <!-- Conflicting Claims -->
+                <div class="dossier-card">
+                    <div class="card-header">
+                        <span class="card-tag alert-amber">CONTRADICTIONS & CONFLICTS</span>
+                        <span class="info-tag">DISAGREEMENTS</span>
+                    </div>
+                    <div id="conflicts-container" class="items-list"></div>
+                </div>
+
+                <!-- Missing Information (Dark Spots) -->
+                <div class="dossier-card">
+                    <div class="card-header">
+                        <span class="card-tag alert-red">DIGITAL DARK SPOTS (MISSING)</span>
+                        <span class="info-tag">BLIND SPOTS</span>
+                    </div>
+                    <div id="missing-container" class="items-list"></div>
+                </div>
+
+                <!-- Decision Support History (Module 4) - Multi-evaluation ledger -->
+                <div id="decision-history-container" class="items-list"></div>
+
+            </section>
+
+            <!-- RIGHT AREA: Open 3D Canvas + Floating Card + Bottom Decision Bar -->
+            <div id="right-area">
+                
+                <!-- Floating Node Card on Hover/Click -->
+                <div id="floating-node-card" class="floating-glass-card hidden">
+                    <div class="card-close" id="close-floating-card">×</div>
+                    <div class="floating-header">
+                        <span id="floating-source-id" class="source-id-badge">S1</span>
+                        <span id="floating-trust-badge" class="trust-badge">0.90</span>
+                    </div>
+                    <h4 id="floating-title" class="floating-title">Source Title</h4>
+                    <p id="floating-excerpt" class="floating-excerpt"></p>
+                    <a id="floating-link" href="#" target="_blank" rel="noopener noreferrer" class="external-link">Visit Source ↗</a>
+                </div>
+
+                <!-- Bottom Floating Decision Bar -->
+                <div id="decision-bar" class="floating-decision-glass">
+                    <div class="decision-bar-header">
+                        <span class="decision-label">MODULE 4 DECISION SUPPORT</span>
+                    </div>
+                    <div class="decision-bar-input-group">
+                        <input type="text" id="decision-input" placeholder="What decision do you want to take? (e.g., Register for GATE 2027 as 3rd-year student)">
+                        <button id="submit-decision-btn" class="decision-submit-btn">
+                            <span>Evaluate</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Application Script -->
+    <script src="js/scene.js?v=10"></script>
+    <script src="js/app.js?v=10"></script>
+</body>
+</html>
+
