@@ -269,6 +269,15 @@ python cli_run.py --scenario nmes
 
 ---
 
+## 🔮 Future Scope & Model Post-Training
+
+1. **Domain-Specific Model Post-Training**: Post-training and fine-tuning an open-weights foundation model specifically for regulatory contradiction identification and omission discovery. This will drastically improve inference speed, enhance domain accuracy, and consolidate multi-stage reasoning into a single optimized pass.
+2. **Automated Webhook Monitoring**: Periodic background re-crawling that alerts students and researchers if an official portal updates circulars, deadlines, or qualification terms.
+3. **Multi-Modal Verification**: Ingesting scanned tabular PDFs and fee schedule images directly via Gemini 3.5 Vision.
+4. **Browser Extension**: A companion extension that overlays Kazama trust scores and missing requirement warnings directly over university admissions portals and job boards.
+
+---
+
 ## 📄 API Reference
 
 | Endpoint | Method | Description |
